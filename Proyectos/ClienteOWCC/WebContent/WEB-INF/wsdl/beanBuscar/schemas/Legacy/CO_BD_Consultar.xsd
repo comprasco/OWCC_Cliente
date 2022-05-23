@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<xsd:schema id="Consultar"
+    targetNamespace="https://www.supernotariado.gov.co/schemas/bachue/co/busquedadocumentos/consultar/v1"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+xmlns:bachue="https://www.supernotariado.gov.co/schemas/bachue/co/busquedadocumentos/consultar/v1" elementFormDefault="qualified" version="1.3">
+<xsd:complexType name="tipoEntradaConsultar">
+<xsd:sequence>
+
+	<xsd:element name="sistemaOrigen" type="xsd:string"/>	
+
+	<xsd:element name="parametros">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="parametro" type="bachue:tipoParametro" minOccurs="0"
+						maxOccurs="unbounded" />
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	
+	<xsd:element name="repositorio">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string">
+				<xsd:enumeration value="TEMPORAL"/>
+				<xsd:enumeration value="FINAL"/>
+				<xsd:enumeration value="MIXTO"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+
+</xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="tipoParametro">
+	<xsd:sequence>
+		<xsd:element name="nombre" type="xsd:string"/>
+<xsd:element name="valor" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+
+
+
+<xsd:element name="entradaConsultar" type="bachue:tipoEntradaConsultar"/>
+
+<xsd:complexType name="tipoSalidaConsultar">
+<xsd:sequence>
+	<xsd:element name="documentos">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="documento" type="bachue:tipoDocumento" minOccurs="0"
+						maxOccurs="unbounded" />
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>	
+
+	<xsd:element name="codigoMensaje" type="xsd:integer"/>
+
+	<xsd:element name="descripcionMensaje" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+</xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="tipoDocumento">
+	<xsd:sequence>
+		<xsd:element name="dID" type="xsd:string"/>
+
+		<xsd:element name="docName" type="xsd:string"/>
+
+		<xsd:element name="tipoDocumental" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/>
+
+		<xsd:element name="orip" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/>
+
+		<xsd:element name="nir" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/>
+
+		<xsd:element name="codOrip" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/>
+
+		<xsd:element name="turno" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/>
+		
+		<xsd:element name="documentoRegistrado" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/>
+		
+		<xsd:element name="numeroDocumento" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/>
+		
+		<xsd:element name="fechaDocumento" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/>
+
+		<xsd:element name="entidadOrigen" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/>
+
+		<xsd:element name="pais" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/>
+
+		<xsd:element name="departamento" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/>
+
+		<xsd:element name="municipio" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/>
+
+		<xsd:element name="matricula" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/>
+		
+		<xsd:element name="anotacion" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/>
+		
+		<xsd:element name="numeroPagina" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/>
+		
+		<xsd:element name="numeroFolios" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/>
+
+		<xsd:element name="nombreInterviniente" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/>
+
+		<xsd:element name="identificacionInterviniente" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/>
+
+		<xsd:element name="fechaPublicacion" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/>
+
+		<xsd:element name="fechaVigencia" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/>
+		
+		<xsd:element name="tipoOficina" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/>
+		
+		<xsd:element name="actoNaturalezaJuridica" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/>
+		
+		<xsd:element name="proceso" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/>
+		
+		<xsd:element name="nirVinculado" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/>
+		
+		<xsd:element name="turnoVinculado" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/>
+		
+		<xsd:element name="urlVisor" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/>
+
+	</xsd:sequence>
+</xsd:complexType>
+
+
+<xsd:element name="salidaConsultar" type="bachue:tipoSalidaConsultar"/>
+</xsd:schema>

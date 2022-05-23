@@ -1,0 +1,56 @@
+<xsd:schema id="ActualizarMetadatosPoder"
+            targetNamespace="https://www.supernotariado.gov.co/schemas/bachue/co/actualizacionmetadatospoderes/actualizarmetadatospoder/v1"
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns:bachue="https://www.supernotariado.gov.co/schemas/bachue/co/actualizacionmetadatospoderes/actualizarmetadatospoder/v1"
+            elementFormDefault="qualified" version="1.3">
+  <xsd:complexType name="tipoEntradaActualizarMetadatosPoder">
+    <xsd:sequence>
+      <xsd:element name="sistemaOrigen" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="dDocName" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="parametros" minOccurs="1">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="parametro" maxOccurs="unbounded" minOccurs="0">
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:element name="xComments" type="xsd:string" minOccurs="0"/>
+                  <xsd:element name="x_Justificacion_Revocado" type="xsd:string" minOccurs="1"/>
+				  <xsd:element name="dDocType" type="xsd:string" minOccurs="1"/>
+                  <xsd:element name="xTip_Doc_Apoderado" type="xsd:string" minOccurs="1"/>
+                  <xsd:element name="xCC_Apoderado" type="xsd:string" minOccurs="1"/>
+                  <xsd:element name="xNombre_Apoderado" type="xsd:string" minOccurs="1"/>
+                  <xsd:element name="xTip_Doc_Poderdante" type="xsd:string" minOccurs="1"/>
+                  <xsd:element name="xCC_Poderdante" type="xsd:string" minOccurs="1"/>
+                  <xsd:element name="xNombre_Poderdante" type="xsd:string" minOccurs="1"/>
+                  <xsd:element name="xDireccion_Predio" type="xsd:string" minOccurs="1"/>
+                  <xsd:element name="xDepartamento_Predio" type="xsd:string" minOccurs="1"/>
+                  <xsd:element name="xCiudad_Predio" type="xsd:string" minOccurs="1"/>
+                  <xsd:element name="xNumero_Instrumento" type="xsd:string" minOccurs="1"/>
+                  <xsd:element name="xFecha_Instrumento" type="xsd:date" minOccurs="1"/>
+                  <xsd:element name="xCirculo_Predio" type="xsd:string" minOccurs="1"/>
+                  <xsd:element name="xFinalizacion_Poder" type="xsd:date" minOccurs="1"/>
+                  <xsd:element name="xJustificacion_Usado" type="xsd:string" minOccurs="1"/>
+                  <xsd:element name="xEstado_Poder" type="xsd:string" minOccurs="1"/>
+				  <xsd:element name="xUso_Poder" type="xsd:string" minOccurs="1"/>
+  				  <xsd:element name="xDiligenciaReconocimiento" type="xsd:string" minOccurs="0"/>
+				  <xsd:element name="xTipo_Documento" type="xsd:string" minOccurs="0"/>
+				  <xsd:element name="xNotificaciones" type="xsd:string" minOccurs="0"/>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="entradaActualizarMetadatosPoder" type="bachue:tipoEntradaActualizarMetadatosPoder"/>
+  <xsd:complexType name="tipoSalidaActualizarMetadatosPoder">
+    <xsd:sequence>
+      <xsd:element name="docName" type="xsd:string" minOccurs="1"/>
+    <xsd:element name="dID" type="xsd:int" minOccurs="1"/>
+    <xsd:element name="codigoMensaje" type="xsd:int" minOccurs="1"/>
+    <xsd:element name="descripcionMensaje" type="xsd:string" minOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="salidaActualizarMetadatosPoder" type="bachue:tipoSalidaActualizarMetadatosPoder"/>
+</xsd:schema>

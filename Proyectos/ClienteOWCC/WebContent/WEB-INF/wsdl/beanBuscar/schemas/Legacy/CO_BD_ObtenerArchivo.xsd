@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<xsd:schema id="ObtenerArchivo"
+    targetNamespace="https://www.supernotariado.gov.co/schemas/bachue/co/busquedadocumentos/obtenerarchivo/v1"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+xmlns:bachue="https://www.supernotariado.gov.co/schemas/bachue/co/busquedadocumentos/obtenerarchivo/v1" elementFormDefault="qualified" version="1.3">	
+<xsd:complexType name="tipoEntradaObtenerArchivo">
+	<xsd:sequence>
+		<xsd:element name="dDocName" type="xsd:string"/>
+		<xsd:element name="dID" type="xsd:string"/>
+
+	</xsd:sequence>
+</xsd:complexType>
+
+<xsd:element name="entradaObtenerArchivo" type="bachue:tipoEntradaObtenerArchivo"/>
+
+<xsd:complexType name="tipoSalidaObtenerArchivo">
+	<xsd:sequence>
+		<xsd:element name="archivo" type="xsd:base64Binary"/>
+		<xsd:element name="codigoMensaje" type="xsd:integer"/>
+		<xsd:element name="descripcionMensaje" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+	</xsd:sequence>
+</xsd:complexType>
+
+<xsd:element name="salidaObtenerArchivo" type="bachue:tipoSalidaObtenerArchivo"/>
+</xsd:schema>

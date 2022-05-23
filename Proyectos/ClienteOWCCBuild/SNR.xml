@@ -1,0 +1,45 @@
+<?xml version="1.0" ?>
+<project name="ClienteOWCCBuild" default="war" basedir=".">
+	<property name="expose.dir" location="C:\ear" />
+	<property name="workspace.dir" location="${basedir}/.." />
+	<property name="war-archivo" value="ClienteOWCC" />
+	<tstamp prefix="build-info">
+			<format property="current-date" pattern="YYYYMMdd_hhmm" locale="en" />
+			<format property="current-time" pattern="hh:mm:ss a z" locale="en" />
+	</tstamp>
+
+   <!-- <path id="compile.classpath">
+        <fileset dir="${workspace.dir}/ClienteOWCC/WebContent/WEB-INF/lib">
+            <include name="*.jar"/>
+        </fileset>
+    </path>-->
+
+    <target name="init">
+        <mkdir dir="dist" />
+    </target>
+
+    <!--<target name="compile" depends="init" >
+        <javac destdir="build/classes" debug="true" srcdir="${workspace.dir}/ClienteOWCC/src">
+            <classpath refid="compile.classpath"/>
+        </javac>
+    </target>-->
+
+
+
+    <target name="war">
+    	<echo>${workspace.dir}</echo>
+        <war destfile="${expose.dir}/${war-archivo}_${build-info.current-date}.war" webxml="${workspace.dir}/ClienteOWCC/WebContent/WEB-INF/web.xml">
+            <fileset dir="${workspace.dir}/ClienteOWCC/WebContent">
+            	<exclude name="${workspace.dir}/ClienteOWCC/build/classes" />
+            </fileset>
+            <!--<lib dir="${workspace.dir}/ClienteOWCC/WebContent/WEB-INF/lib"/>-->
+        	<classes dir="${workspace.dir}/ClienteOWCC/build/classes"/>
+        </war>
+    </target>
+
+    <target name="clean">
+        <delete dir="dist" />
+        <delete dir="build" />
+    </target>
+
+</project>

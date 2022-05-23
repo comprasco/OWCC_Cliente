@@ -1,0 +1,47 @@
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+                  xmlns:bachue="https://www.supernotariado.gov.co/services/bachue/co/actualizacionmetadatospoderes/v1"
+                  xmlns:bachue1="https://www.supernotariado.gov.co/schemas/bachue/co/actualizacionmetadatospoderes/actualizarmetadatospoder/v1"
+                  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+                  xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
+                  targetNamespace="https://www.supernotariado.gov.co/services/bachue/co/actualizacionmetadatospoderes/v1">
+  <wsdl:types>
+    <schema xmlns="http://www.w3.org/2001/XMLSchema">
+      <import namespace="https://www.supernotariado.gov.co/schemas/bachue/co/actualizacionmetadatospoderes/actualizarmetadatospoder/v1"
+              schemaLocation="Schemas/Legacy/CO_CP_ActualizarMetadatosPoder.xsd"/>
+      
+    </schema>
+  </wsdl:types>
+  <wsdl:message name="ActualizarMetadatosPoder_Request">
+    <wsdl:part name="entrada" element="bachue1:entradaActualizarMetadatosPoder"/>
+  </wsdl:message>
+  <wsdl:message name="ActualizarMetadatosPoder_Response">
+    <wsdl:part name="salida" element="bachue1:salidaActualizarMetadatosPoder"/>
+  </wsdl:message>
+
+  <wsdl:portType name="BS_SAN_CO_ActualizacionMetadatosPoderes">
+    <wsdl:operation name="ActualizarMetadatosPoder">
+      <wsdl:input message="bachue:ActualizarMetadatosPoder_Request"/>
+      <wsdl:output message="bachue:ActualizarMetadatosPoder_Response"/>
+    </wsdl:operation>
+ 
+  </wsdl:portType>
+  <wsdl:binding name="BS_SAN_CO_ActualizacionMetadatosPoderesSOAP12Binding" type="bachue:BS_SAN_CO_ActualizacionMetadatosPoderes">
+    <soap12:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="ActualizarMetadatosPoder">
+      <soap12:operation style="document"
+                        soapAction="https://www.supernotariado.gov.co/services/bachue/co/actualizacionmetadatospoderes/v1/ActualizarMetadatosPoder"/>
+      <wsdl:input>
+        <soap12:body use="literal" parts="entrada"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" parts="salida"/>
+      </wsdl:output>
+    </wsdl:operation>
+    
+  </wsdl:binding>
+  <wsdl:service name="BS_SAN_CO_ActualizacionMetadatosPoderes">
+    <wsdl:port name="BS_SAN_CO_ActualizacionMetadatosPoderesPort" binding="bachue:BS_SAN_CO_ActualizacionMetadatosPoderesSOAP12Binding">
+      <soap12:address location=""/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
